@@ -1,0 +1,12 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006 OpenWrt.org, 2022 Alan Brenner
+
+# shellcheck disable=SC2034
+START=61
+USE_PROCD=1
+
+start_service() {
+	procd_open_instance
+	procd_set_param command /usr/bin/prometheus-tripplite-ups-exporter
+	procd_close_instance
+}
